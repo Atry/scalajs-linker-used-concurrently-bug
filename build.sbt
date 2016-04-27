@@ -2,7 +2,11 @@ enablePlugins(PlayScala)
 
 enablePlugins(BuildInfoPlugin)
 
+scalaVersion in Global := "2.11.8"
+
 lazy val js = project
+
+import org.scalajs.core.tools.io.FileVirtualJSFile
 
 resourceGenerators in Assets += Def.task[Seq[java.io.File]] {
   val linked = (scalaJSLinkedFile in js in Compile).value.asInstanceOf[FileVirtualJSFile]
